@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu giá của các loại hoa đang bán </title>
+    <!-- <link rel="stylesheet" href="bd.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/gt.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <style>
+       body{
+        font-size:  16px;
+        font-family: Arial, Helvetica, sans-serif;
+       }
+       table{
+        width: 100%;
+       }
+       table, td, th{
+        border: 1px solid #333;
+        border-collapse: collapse;
+       }
+       td, th{
+        padding: 7px 100px;
+       }
+       .table.table-dark{
+            background: #6b6565;
+            color: #fff;
+       }
+       .table.table-hover tbody tr:hover{
+        background: #333;
+       }
+       
+    </style>    
+    <h1>Doanh thu của cửa hàng</h1>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tổng sản phẩm bán</th>
+                <th>Doanh thu</th>
+                <th>năm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>100</th>
+                <th>860.000.000</th>
+                <th>2021</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>86</th>
+                <th>720.000.000</th>
+                <th>2019</th>
+            </tr>
+            <tr>
+                <th>3</th>
+                <th>80</th>
+                <th>690.000.000</th>
+                <th>2022</th>
+            </tr>
+            <tr>
+                <th>4</th>
+                <th>70</th>
+                <th>600.000.000</th>
+                <th>2020</th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Tổng</th>
+                <th colspan="2">2.870.000.000</th>
+            </tr>
+        </tfoot>
+    </table>
+     
+    <div class="mychart">
+        <h2>Biểu đồ doanh thu</h2>
+        <div style="width: 80%; margin: 0 auto; margin-top: 40px">
+          <canvas id="doanhthuChart"></canvas>
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById("doanhthuChart").getContext("2d");
+        var doanhthuData = {
+            labels: [
+            "Năm 2019",
+            "Năm 2020",
+            "Năm 2021",
+            "Năm 2022",
+        ],
+        datasets: [
+            {
+                label: "Doanh thu",
+                data: [720000000, 600000000, 860000000, 690000000],
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#4BC0C0",
+                    
+                ],
+                borderColor: "#000", // Màu viền của cột (có thể để giống nhau hoặc sửa đổi tùy ý)
+                borderWidth: 1,
+            },
+        ],
+        };
+        var doanhthuChart = new Chart(ctx, {
+          type: "bar",
+          data: doanhthuData,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      </script>
+
+
+      <canvas id="myChart" width="400" height="400"></canvas>
+    
+</body>
+</html>
